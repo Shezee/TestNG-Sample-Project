@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="SignIn">
+    <parameter name="URL" value="https://demo.thingsboard.io/login"></parameter>
+    <!--passing url parameter at suite level so @BeforeSuite can use the parameter-->
     <test name="Gmail">
         <classes>
-            <class name="test.first"/>
+            <class name="test.first">
+                <methods>
+                    <exclude name = "forgot.*" />
+                    <!--executes all methods starting with forgot-->
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
